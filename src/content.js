@@ -78,7 +78,8 @@
   }
 
   // Scripts de rastreamento costumam gravar depois do load, então tiramos várias fotos.
-  window.addEventListener("load", () => {
+  // Só o frame principal fotografa o storage (iframes de 3ª parte têm origem própria).
+  if (window === window.top) window.addEventListener("load", () => {
     snapshot();
     setTimeout(snapshot, 3000);
     setTimeout(snapshot, 8000);

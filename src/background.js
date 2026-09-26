@@ -19,7 +19,8 @@ function newReport(tabId, url) {
     thirdParty: {},      // dominioBase -> { hosts:Set, count, types:{}, blocked }
     cookies: {},         // "nome|dominio" -> { name, domain, party, kind, source, timesSet, ... }
     cookieWrites: 0,     // total de gravações (inclui repetições do mesmo cookie)
-    storage: { localStorage: null, sessionStorage: null, indexedDB: null }
+    storage: { localStorage: null, sessionStorage: null, indexedDB: null },
+    fingerprint: []      // { api, verdict, script, scriptHost, thirdParty, frame, details }
   };
 }
 
@@ -164,6 +165,23 @@ browser.runtime.onMessage.addListener((msg, sender) => {
     const c = parseSetCookie(msg.raw, host);
     const scriptHost = msg.script ? hostnameOf(msg.script) : null;
     recordCookie(rep, c, "js", scriptHost || host, "script", msg.script);
+    return;
+  }
+
+  if (msg.type === "fingerprint") {
+    const rep = getReport(tabId);
+    if (!rep) return;
+    const scriptHost = hostnameOf(msg.script);
+    rep.fingerprint.push({
+      api: msg.api,
+      verdict: msg.verdict,
+      script: msg.script,
+      scriptHost,
+      thirdParty: isThirdParty(scriptHost, rep.host),
+      frame: msg.frame,
+      details: msg.details,
+      at: Date.now()
+    });
     return;
   }
 

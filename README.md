@@ -30,7 +30,7 @@ evidencias/          HARs e prints usados no relatório
 - [x] Cookies injetados via HTTP (1ª/3ª parte, sessão/persistente)
 - [x] Armazenamento HTML5 (localStorage, sessionStorage, IndexedDB)
 - [x] Cookies via `document.cookie`
-- [ ] Canvas fingerprint
+- [x] Canvas fingerprint
 - [ ] Cookie sync / bounce tracking
 - [ ] Hijacking / hook
 - [ ] Pontuação de privacidade

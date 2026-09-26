@@ -56,6 +56,24 @@ async function render() {
   $("st-ls").textContent = fmt(s.localStorage);
   $("st-ss").textContent = fmt(s.sessionStorage);
   $("st-idb").textContent = s.indexedDB ? `${s.indexedDB.count} bancos` : "–";
+
+  // Fingerprinting
+  const fp = rep.fingerprint || [];
+  const strong = fp.filter((f) => f.verdict === "fingerprint");
+  $("fp-count").textContent = fp.length;
+  $("fp-count").style.background = strong.length ? "#d33" : "";
+  if (fp.length) {
+    $("fp-summary").textContent =
+      `${strong.length} fingerprint · ${fp.length - strong.length} suspeito(s)`;
+  }
+  $("fp-list").replaceChildren(...fp.map((f) =>
+    h("li", "", h("b", "", f.api),
+      h("span", "tag", f.verdict),
+      f.thirdParty ? h("span", "tag", "3ª parte") : "",
+      f.details && f.details.width ? h("span", "muted", ` ${f.details.width}×${f.details.height}px`) : "",
+      f.details && f.details.distinctChars ? h("span", "muted", ` · ${f.details.distinctChars} caracteres`) : "",
+      f.details && f.details.parameter ? h("span", "muted", " " + f.details.parameter) : "",
+      h("div", "muted", "script: " + f.script))));
 }
 
 render();
