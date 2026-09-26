@@ -43,6 +43,40 @@
     browser.runtime.sendMessage({ type: "storage-snapshot", data });
   }
 
+  // ---------- Parte 2: cookies gravados via JavaScript (document.cookie) ----------
+  // Cookies criados por JS não passam por cabeçalho Set-Cookie, então o background não vê.
+  // Substituímos o getter/setter de document.cookie NA PÁGINA (wrappedJSObject) por funções
+  // nossas, exportadas com exportFunction. Dentro delas usamos o `document` do content script,
+  // que é uma visão "Xray": acessa o document.cookie nativo, ignorando o nosso próprio gancho.
+
+  // Descobre qual script chamou document.cookie olhando a pilha de chamadas.
+  function callerScript() {
+    try {
+      const urls = (new Error().stack || "").match(/https?:\/\/[^\s)@]+?(?=:\d+:\d+)/g) || [];
+      return urls.find((u) => !u.startsWith("moz-extension:")) || null;
+    } catch (e) { return null; }
+  }
+
+  try {
+    const proto = page.Document.prototype;
+    Object.defineProperty(proto, "cookie", {
+      configurable: true,
+      enumerable: true,
+      get: exportFunction(function () {
+        return document.cookie;
+      }, page),
+      set: exportFunction(function (value) {
+        const raw = String(value);
+        browser.runtime.sendMessage({
+          type: "js-cookie", raw, pageUrl: location.href, script: callerScript()
+        });
+        document.cookie = raw;
+      }, page)
+    });
+  } catch (e) {
+    console.warn("[Privacy Guard] não foi possível monitorar document.cookie:", e);
+  }
+
   // Scripts de rastreamento costumam gravar depois do load, então tiramos várias fotos.
   window.addEventListener("load", () => {
     snapshot();

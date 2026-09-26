@@ -17,7 +17,8 @@ function newReport(tabId, url) {
     totalRequests: 0,
     firstPartyRequests: 0,
     thirdParty: {},      // dominioBase -> { hosts:Set, count, types:{}, blocked }
-    cookies: [],         // { name, domain, party, kind, source, fromHost }
+    cookies: {},         // "nome|dominio" -> { name, domain, party, kind, source, timesSet, ... }
+    cookieWrites: 0,     // total de gravações (inclui repetições do mesmo cookie)
     storage: { localStorage: null, sessionStorage: null, indexedDB: null }
   };
 }
@@ -109,25 +110,41 @@ browser.webRequest.onHeadersReceived.addListener(
       for (const line of h.value.split("\n")) {
         if (!line.trim()) continue;
         const c = parseSetCookie(line, reqHost);
-        rep.cookies.push({
-          name: c.name,
-          domain: c.domain,
-          party: isThirdParty(c.domain, rep.host) ? "third" : "first",
-          kind: c.persistent ? "persistent" : "session",
-          expires: c.expires,
-          httpOnly: c.httpOnly,
-          secure: c.secure,
-          sameSite: c.sameSite,
-          source: "http",
-          fromHost: reqHost,
-          requestType: type
-        });
+        recordCookie(rep, c, "http", reqHost, type);
       }
     }
   },
   { urls: ["<all_urls>"] },
   ["responseHeaders"]
 );
+
+// Registra um cookie sem duplicar: o mesmo nome+domínio gravado várias vezes
+// (comum em rastreadores, que reenviam Set-Cookie a cada requisição) conta 1 vez.
+function recordCookie(rep, c, source, fromHost, requestType, script) {
+  rep.cookieWrites++;
+  const key = `${c.name}|${c.domain}`;
+  const prev = rep.cookies[key];
+  if (prev) {
+    prev.timesSet++;
+    if (!prev.sources.includes(source)) prev.sources.push(source);
+    return;
+  }
+  rep.cookies[key] = {
+    name: c.name,
+    domain: c.domain,
+    party: isThirdParty(c.domain, rep.host) ? "third" : "first",
+    kind: c.persistent ? "persistent" : "session",
+    expires: c.expires,
+    httpOnly: c.httpOnly,
+    secure: c.secure,
+    sameSite: c.sameSite,
+    sources: [source],        // "http" (Set-Cookie) e/ou "js" (document.cookie)
+    fromHost,
+    requestType,
+    script: script || null,   // para cookies via JS: URL do script que gravou (se identificado)
+    timesSet: 1
+  };
+}
 
 // ---------- Mensagens (content script e popup) ----------
 
@@ -137,6 +154,16 @@ browser.runtime.onMessage.addListener((msg, sender) => {
   if (msg.type === "storage-snapshot") {
     const rep = getReport(tabId);
     if (rep) rep.storage = msg.data;
+    return;
+  }
+
+  if (msg.type === "js-cookie") {
+    const rep = getReport(tabId);
+    if (!rep) return;
+    const host = hostnameOf(msg.pageUrl) || rep.host;
+    const c = parseSetCookie(msg.raw, host);
+    const scriptHost = msg.script ? hostnameOf(msg.script) : null;
+    recordCookie(rep, c, "js", scriptHost || host, "script", msg.script);
     return;
   }
 
@@ -152,16 +179,21 @@ function serializeReport(rep) {
     .map(([domain, e]) => ({ domain, hosts: [...e.hosts], count: e.count, types: e.types, blocked: e.blocked }))
     .sort((a, b) => b.count - a.count);
 
-  const c = rep.cookies;
+  const c = Object.values(rep.cookies);
   const cookieSummary = {
     total: c.length,
+    writes: rep.cookieWrites,
+    viaJs: c.filter((x) => x.sources.includes("js")).length,
+    // cookie de 1ª parte gravado por script de 3ª parte (ex.: _ga do Google Analytics)
+    firstPartyByThirdPartyScript: c.filter((x) => x.party === "first" && x.script &&
+      isThirdParty(hostnameOf(x.script), rep.host)).length,
     firstParty: c.filter((x) => x.party === "first").length,
     thirdParty: c.filter((x) => x.party === "third").length,
     session: c.filter((x) => x.kind === "session").length,
     persistent: c.filter((x) => x.kind === "persistent").length
   };
 
-  return { ...rep, thirdParty, cookieSummary };
+  return { ...rep, thirdParty, cookies: c, cookieSummary };
 }
 
 // ---------- Badge ----------

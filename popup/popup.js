@@ -32,7 +32,11 @@ async function render() {
   // Cookies
   const c = rep.cookies;
   const count = (party, kind) => c.filter((x) => x.party === party && x.kind === kind).length;
-  $("ck-count").textContent = rep.cookieSummary.total;
+  const cs = rep.cookieSummary;
+  $("ck-count").textContent = cs.total;
+  $("ck-summary").textContent =
+    `${cs.total} únicos · ${cs.writes} gravações · ${cs.viaJs} via JavaScript` +
+    (cs.firstPartyByThirdPartyScript ? ` · ${cs.firstPartyByThirdPartyScript} de 1ª parte criados por script de 3ª` : "");
   $("ck-1s").textContent = count("first", "session");
   $("ck-3s").textContent = count("third", "session");
   $("ck-1p").textContent = count("first", "persistent");
@@ -41,7 +45,10 @@ async function render() {
     h("li", "", x.name,
       h("span", "tag", x.party === "third" ? "3ª" : "1ª"),
       h("span", "tag", x.kind === "session" ? "sessão" : "persistente"),
-      h("span", "muted", " " + x.domain))));
+      h("span", "tag", x.sources.join("+")),
+      x.timesSet > 1 ? h("span", "tag", `${x.timesSet}×`) : "",
+      h("span", "muted", " " + x.domain),
+      x.script ? h("div", "muted", "script: " + x.script) : "")));
 
   // Storage
   const s = rep.storage || {};
