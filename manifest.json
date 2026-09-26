@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Privacy Guard",
+  "version": "0.1.0",
+  "description": "Detecta rastreadores, cookies, armazenamento HTML5 e outras violações de privacidade.",
+  "icons": { "48": "icons/icon-48.png", "96": "icons/icon-96.png" },
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "cookies",
+    "tabs",
+    "storage",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["src/domain.js", "src/background.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": { "48": "icons/icon-48.png" },
+    "default_title": "Privacy Guard",
+    "default_popup": "popup/popup.html"
+  },
+
+  "browser_specific_settings": {
+    "gecko": { "id": "privacy-guard@insper.edu.br", "strict_min_version": "115.0" }
+  }
+}
