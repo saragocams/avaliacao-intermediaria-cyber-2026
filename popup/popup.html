@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Privacy Guard</h1>
+    <div id="site" class="muted"></div>
+  </header>
+
+  <section>
+    <h2>Conexões de terceira parte <span id="tp-count" class="pill"></span></h2>
+    <div class="muted" id="req-summary"></div>
+    <ul id="tp-list"></ul>
+  </section>
+
+  <section>
+    <h2>Cookies injetados <span id="ck-count" class="pill"></span></h2>
+    <table class="grid">
+      <tr><th></th><th>1ª parte</th><th>3ª parte</th></tr>
+      <tr><td>Sessão</td><td id="ck-1s">0</td><td id="ck-3s">0</td></tr>
+      <tr><td>Persistente</td><td id="ck-1p">0</td><td id="ck-3p">0</td></tr>
+    </table>
+    <details><summary>Ver cookies</summary><ul id="ck-list" class="small"></ul></details>
+  </section>
+
+  <section>
+    <h2>Armazenamento HTML5</h2>
+    <table class="grid">
+      <tr><td>localStorage</td><td id="st-ls">–</td></tr>
+      <tr><td>sessionStorage</td><td id="st-ss">–</td></tr>
+      <tr><td>IndexedDB</td><td id="st-idb">–</td></tr>
+    </table>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
