@@ -19,6 +19,10 @@ Extensão para detectar rastreadores e violações de privacidade no cliente web
 manifest.json        declaração da extensão (Manifest V2, background persistente)
 src/domain.js        cálculo de domínio registrável (eTLD+1) e 1ª x 3ª parte
 src/background.js    monitora requisições e cabeçalhos Set-Cookie por aba
+src/tracking.js      bounce tracking, cookie sync e parâmetros de rastreamento (gclid, fbclid…)
+src/hijack.js        indicadores de hijacking no tráfego (WebSocket, polling, CSP, BeEF)
+src/hijack-page.js   integridade de objetos globais e captura de teclado dentro da página
+src/fingerprint.js   ganchos em Canvas/WebGL para detectar fingerprinting
 src/content.js       roda na página: lê localStorage, sessionStorage, IndexedDB
 popup/               interface com o relatório da aba atual
 evidencias/          HARs e prints usados no relatório
@@ -29,9 +33,9 @@ evidencias/          HARs e prints usados no relatório
 - [x] Conexões a domínios de terceira parte
 - [x] Cookies injetados via HTTP (1ª/3ª parte, sessão/persistente)
 - [x] Armazenamento HTML5 (localStorage, sessionStorage, IndexedDB)
-- [x] Cookies via `document.cookie`
-- [x] Canvas fingerprint
-- [ ] Cookie sync / bounce tracking
-- [ ] Hijacking / hook
+- [x] Cookies via `document.cookie` (e remoção de duplicados)
+- [x] Canvas fingerprint (e leitura de GPU via WebGL)
+- [x] Cookie sync / bounce tracking / parâmetros de rastreamento na URL
+- [x] Hijacking / hook (objetos globais alterados, WebSocket/SSE/polling de 3ª parte, captura de teclado, gravação de sessão, BeEF, CSP)
 - [ ] Pontuação de privacidade
 - [ ] Lista de bloqueio personalizada

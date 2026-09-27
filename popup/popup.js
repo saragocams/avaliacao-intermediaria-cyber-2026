@@ -101,6 +101,47 @@ async function render() {
     h("li", "", h("b", "", p.params.join(", ")),
       p.thirdParty ? h("span", "tag", "3ª parte") : h("span", "tag", "navegação"),
       h("div", "muted", p.url))));
+
+  // Sequestro de navegador / hooks
+  const hjk = rep.hijack || {};
+  const items = [];
+  const csp = hjk.csp;
+  if (csp) {
+    items.push(h("li", "", h("b", "", "CSP: "),
+      csp.present ? `presente (${csp.source})` : `ausente — ${csp.source}`,
+      csp.present && csp.weak.length ? h("span", "tag", "fraca: " + csp.weak.join(", ")) : "",
+      !csp.present ? h("div", "muted", "Sem CSP, um XSS pode carregar script de qualquer origem (porta de entrada de hooks como o BeEF).") : ""));
+  }
+  for (const b of hjk.beef || []) {
+    items.push(h("li", "", h("b", "", "⚠ Assinatura BeEF: "), b.host, h("div", "muted", b.evidence)));
+  }
+  for (const c of hjk.channels || []) {
+    items.push(h("li", "", h("b", "", c.kind + ": "), c.host,
+      c.thirdParty ? h("span", "tag", "3ª parte") : h("span", "tag", "1ª parte"),
+      c.intervalSec ? h("span", "muted", ` a cada ~${c.intervalSec}s (${c.requests} req)`) : ""));
+  }
+  const integ = hjk.integrity;
+  if (integ) {
+    for (const ch of integ.changed) {
+      items.push(h("li", "", h("b", "", "Objeto global alterado: "), ch.name,
+        h("div", "muted", ch.source)));
+    }
+    items.push(h("li", "", h("b", "", "Globais criadas pela página: "), String(integ.addedCount),
+      integ.suspicious.length ? h("span", "tag", "suspeitas: " + integ.suspicious.join(", ")) : ""));
+  }
+  for (const k of hjk.keyListeners || []) {
+    items.push(h("li", "", h("b", "", "Captura de teclado (3ª parte): "), `${k.event} em ${k.target}`,
+      h("div", "muted", "script: " + k.script)));
+  }
+  for (const r of hjk.sessionReplay || []) {
+    items.push(h("li", "", h("b", "", "Gravação de sessão: "), r.domain));
+  }
+  const alerts = (hjk.beef || []).length + (hjk.channels || []).filter((c) => c.thirdParty).length +
+    (integ ? integ.changed.length + integ.suspicious.length : 0) + (hjk.keyListeners || []).length +
+    (hjk.sessionReplay || []).length + (csp && !csp.present ? 1 : 0);
+  $("hj-count").textContent = alerts;
+  $("hj-count").style.background = alerts ? "#d33" : "";
+  $("hj-list").replaceChildren(...(items.length ? items : [h("li", "muted", "Nenhum indicador.")]));
 }
 
 render();
