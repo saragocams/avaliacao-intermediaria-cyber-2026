@@ -74,6 +74,28 @@ async function render() {
       f.details && f.details.distinctChars ? h("span", "muted", ` · ${f.details.distinctChars} caracteres`) : "",
       f.details && f.details.parameter ? h("span", "muted", " " + f.details.parameter) : "",
       h("div", "muted", "script: " + f.script))));
+
+  // Rastreamento entre sites: bounce tracking, cookie sync, parâmetros de rastreamento
+  const bounces = rep.bounces || [], sync = rep.cookieSync || [], params = rep.decoratedParams || [];
+  const total = bounces.length + sync.length + params.length;
+  $("xs-count").textContent = total;
+  $("xs-count").style.background = bounces.length || sync.length ? "#d33" : "";
+  if (total) {
+    $("xs-summary").textContent =
+      `${bounces.length} bounce(s) · ${sync.length} sincronização(ões) de ID · ${params.length} URL(s) com parâmetro de rastreamento`;
+  }
+  $("xs-bounce").replaceChildren(...bounces.map((b) =>
+    h("div", "small", h("b", "", "Bounce: "), b.chain.join(" → "),
+      h("div", "muted", "intermediário(s): " + b.bouncers.map((x) =>
+        `${x.domain} (${x.how}${x.setCookies ? `, ${x.setCookies} cookie(s)` : ""})`).join(", ")))));
+  $("xs-sync").replaceChildren(...sync.map((e) =>
+    h("li", "", h("b", "", `${e.from} → ${e.to}`),
+      h("span", "tag", e.via),
+      h("div", "muted", `cookie "${e.cookie}" = ${e.id} enviado no parâmetro "${e.param}"`))));
+  $("xs-params").replaceChildren(...params.slice(0, 10).map((p) =>
+    h("li", "", h("b", "", p.params.join(", ")),
+      p.thirdParty ? h("span", "tag", "3ª parte") : h("span", "tag", "navegação"),
+      h("div", "muted", p.url))));
 }
 
 render();
