@@ -209,3 +209,4 @@ $("export").addEventListener("click", () => {
 });
 
 render();
+setInterval(render, 2000);
