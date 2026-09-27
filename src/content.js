@@ -77,6 +77,18 @@
     console.warn("[Privacy Guard] não foi possível monitorar document.cookie:", e);
   }
 
+  // ---------- Parte 3: interação do usuário (para detectar bounce tracking) ----------
+  // Uma página que navega sozinha, sem nenhum clique/tecla do usuário, logo após carregar,
+  // é uma "ponte" (bounce). Avisamos o background na primeira interação real.
+  if (window === window.top) {
+    const onInteract = (e) => {
+      if (!e.isTrusted) return; // ignora eventos sintéticos disparados por script
+      browser.runtime.sendMessage({ type: "user-interaction" });
+      for (const t of ["pointerdown", "keydown"]) window.removeEventListener(t, onInteract, true);
+    };
+    for (const t of ["pointerdown", "keydown"]) window.addEventListener(t, onInteract, true);
+  }
+
   // Scripts de rastreamento costumam gravar depois do load, então tiramos várias fotos.
   // Só o frame principal fotografa o storage (iframes de 3ª parte têm origem própria).
   if (window === window.top) window.addEventListener("load", () => {

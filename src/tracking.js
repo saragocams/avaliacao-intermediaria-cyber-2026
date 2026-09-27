@@ -33,6 +33,9 @@ const BOUNCE_MAX_MS = 10000; // página que "vive" menos que isso e redireciona 
 const redirectsInFlight = new Map(); // tabId -> [{ url, host, status, setCookies }]
 const lastPage = new Map();          // tabId -> { url, host, committedAt, chain }
 const idOwners = new Map();          // valor do ID -> { owner, cookie }
+const shortValues = new Map();       // valores curtos (ex.: "65") -> { owner, cookie }
+// Nomes de parâmetro que indicam claramente um identificador: aí aceitamos valores curtos.
+const ID_PARAM_HINT = /(^|_|-)(u?id|uuid|user_?id|visitor(_?id)?|client_?id|cid|puid|partner_?uid)$|uid/i;
 const MAX_IDS = 5000;
 
 function ensureTrackingFields(rep) {
@@ -65,6 +68,10 @@ function idCandidates(value) {
 
 function rememberCookieIds(cookieDomain, name, value) {
   const owner = baseDomain(cookieDomain);
+  if (value && value.length >= 2 && value.length < 8) {
+    if (shortValues.size >= MAX_IDS) shortValues.delete(shortValues.keys().next().value);
+    shortValues.set(`${value}`, { owner, cookie: name });
+  }
   for (const id of idCandidates(value)) {
     if (idOwners.size >= MAX_IDS) idOwners.delete(idOwners.keys().next().value);
     if (!idOwners.has(id)) idOwners.set(id, { owner, cookie: name });
@@ -82,6 +89,10 @@ function findSyncedIds(url) {
 
   const found = [];
   for (const [param, raw] of values) {
+    const short = shortValues.get(raw);
+    if (short && short.owner !== dest && ID_PARAM_HINT.test(param)) {
+      found.push({ from: short.owner, cookie: short.cookie, to: dest, param, id: raw });
+    }
     for (const cand of idCandidates(raw)) {
       const info = idOwners.get(cand);
       if (info && info.owner !== dest) {
@@ -151,7 +162,12 @@ browser.webRequest.onHeadersReceived.addListener(
 );
 
 // Cookies criados via JS também alimentam a base de IDs
-browser.runtime.onMessage.addListener((msg) => {
+browser.runtime.onMessage.addListener((msg, sender) => {
+  if (msg.type === "user-interaction") {
+    const lp = sender.tab && lastPage.get(sender.tab.id);
+    if (lp) lp.interacted = true;
+    return;
+  }
   if (msg.type !== "js-cookie") return;
   const first = String(msg.raw).split(";")[0];
   const i = first.indexOf("=");
@@ -197,11 +213,17 @@ browser.webNavigation.onCommitted.addListener((d) => {
     .map((h) => ({ host: h.host, how: `HTTP ${h.status}`, setCookies: h.setCookies }));
   redirectsInFlight.delete(tabId);
 
-  // A página anterior foi só uma "ponte" se ela mesma redirecionou via JS/meta refresh
-  // poucos segundos depois de carregar.
+  // A página anterior foi só uma "ponte" se ela navegou sozinha (JS/meta refresh):
+  //  - ficou aberta menos de BOUNCE_MAX_MS, e
+  //  - o usuário não clicou nem digitou nada nela, e
+  //  - a navegação não veio da barra de endereço, favoritos, voltar/avançar ou recarregar.
+  // Não dependemos só do qualifier "client_redirect" porque o Firefox nem sempre o preenche.
   const prev = lastPage.get(tabId);
   const q = d.transitionQualifiers || [];
-  const clientBounce = prev && q.includes("client_redirect") && (now - prev.committedAt) < BOUNCE_MAX_MS;
+  const userNav = ["typed", "auto_bookmark", "reload", "generated", "keyword"].includes(d.transitionType) ||
+    q.includes("from_address_bar") || q.includes("forward_back");
+  const clientBounce = !!prev && !userNav && !prev.interacted &&
+    (q.includes("client_redirect") || (now - prev.committedAt) < BOUNCE_MAX_MS);
 
   let origin, intermediates;
   if (clientBounce) {
@@ -231,7 +253,7 @@ browser.webNavigation.onCommitted.addListener((d) => {
     if (params.length) rep.decoratedParams.push({ url: d.url.slice(0, 200), params });
   }
 
-  lastPage.set(tabId, { host: destHost, committedAt: now, origin, intermediates, rep });
+  lastPage.set(tabId, { host: destHost, committedAt: now, origin, intermediates, rep, interacted: false });
 });
 
 // Também checa decoração de links em requisições a terceiros (ex.: pixel com gclid)

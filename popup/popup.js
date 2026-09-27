@@ -82,16 +82,21 @@ async function render() {
   $("xs-count").style.background = bounces.length || sync.length ? "#d33" : "";
   if (total) {
     $("xs-summary").textContent =
-      `${bounces.length} bounce(s) · ${sync.length} sincronização(ões) de ID · ${params.length} URL(s) com parâmetro de rastreamento`;
+      `${bounces.length} bounce(s) · ${sync.length} ID(s) sincronizado(s) entre ${new Set(sync.map((e) => e.from + e.to)).size} par(es) de domínios · ${params.length} URL(s) com parâmetro de rastreamento`;
   }
   $("xs-bounce").replaceChildren(...bounces.map((b) =>
     h("div", "small", h("b", "", "Bounce: "), b.chain.join(" → "),
       h("div", "muted", "intermediário(s): " + b.bouncers.map((x) =>
         `${x.domain} (${x.how}${x.setCookies ? `, ${x.setCookies} cookie(s)` : ""})`).join(", ")))));
-  $("xs-sync").replaceChildren(...sync.map((e) =>
-    h("li", "", h("b", "", `${e.from} → ${e.to}`),
-      h("span", "tag", e.via),
-      h("div", "muted", `cookie "${e.cookie}" = ${e.id} enviado no parâmetro "${e.param}"`))));
+  // Agrupa as sincronizações por par origem → destino (evita dezenas de linhas repetidas)
+  const pairs = {};
+  for (const e of sync) (pairs[`${e.from} → ${e.to}`] ||= []).push(e);
+  $("xs-sync").replaceChildren(...Object.entries(pairs)
+    .sort((a, b) => b[1].length - a[1].length)
+    .map(([pair, evs]) => h("li", "", h("b", "", pair),
+      h("span", "tag", `${evs.length} ID(s)`),
+      h("div", "muted", evs.slice(0, 3).map((e) => `${e.cookie} → "${e.param}" (${e.id})`).join(" · ") +
+        (evs.length > 3 ? ` · +${evs.length - 3}` : "")))));
   $("xs-params").replaceChildren(...params.slice(0, 10).map((p) =>
     h("li", "", h("b", "", p.params.join(", ")),
       p.thirdParty ? h("span", "tag", "3ª parte") : h("span", "tag", "navegação"),
