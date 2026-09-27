@@ -9,6 +9,21 @@ function h(tag, className, ...children) {
   return el;
 }
 
+// ---------- Lista de bloqueio (browser.storage.local) ----------
+async function getBlocklist() {
+  const r = await browser.storage.local.get("blocklist");
+  return r.blocklist || [];
+}
+async function setBlocklist(list) {
+  await browser.storage.local.set({ blocklist: [...new Set(list)].sort() });
+  render();
+}
+function normalize(d) {
+  return String(d || "").trim().toLowerCase().replace(/^[a-z]+:\/\//, "").replace(/\/.*$/, "").replace(/^\*\./, "");
+}
+
+let lastReport = null;
+
 async function render() {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
   const rep = await browser.runtime.sendMessage({ type: "get-report", tabId: tab.id });
@@ -19,15 +34,36 @@ async function render() {
   }
 
   $("site").textContent = rep.host;
+  lastReport = rep;
+  const blocklist = await getBlocklist();
+
+  // Pontuação
+  if (rep.score) {
+    const sc = rep.score;
+    $("sc-value").textContent = sc.score.toFixed(1);
+    $("sc-value").className = "score b-" + sc.band;
+    $("sc-band").textContent = "Risco " + sc.band;
+    $("sc-vector").textContent = sc.vector;
+    const header = $("sc-table").rows[0];
+    $("sc-table").replaceChildren(header, ...sc.parts.map((p) =>
+      h("tr", "", h("td", "", p.key), h("td", "", Math.round(p.weight * 100) + "%"),
+        h("td", "", p.value.toFixed(1)), h("td", "", p.why))));
+  }
 
   // Terceira parte
   $("tp-count").textContent = rep.thirdParty.length;
   $("req-summary").textContent =
     `${rep.totalRequests} requisições · ${rep.firstPartyRequests} de 1ª parte · ` +
     `${rep.totalRequests - rep.firstPartyRequests} de 3ª parte`;
-  $("tp-list").replaceChildren(...rep.thirdParty.map((t) =>
-    h("li", "", h("b", "", t.domain), h("span", "tag", `${t.count} req`),
-      h("div", "muted", t.hosts.join(", ")))));
+  $("tp-list").replaceChildren(...rep.thirdParty.map((t) => {
+    const isOn = blocklist.includes(t.domain);
+    const btn = h("button", "mini", isOn ? "desbloquear" : "bloquear");
+    btn.addEventListener("click", () =>
+      setBlocklist(isOn ? blocklist.filter((d) => d !== t.domain) : [...blocklist, t.domain]));
+    return h("li", "", h("b", "", t.domain), h("span", "tag", `${t.count} req`),
+      t.blocked ? h("span", "tag blocked", `${t.blocked} bloqueada(s)`) : "", btn,
+      h("div", "muted", t.hosts.join(", ")));
+  }));
 
   // Cookies
   const c = rep.cookies;
@@ -142,6 +178,34 @@ async function render() {
   $("hj-count").textContent = alerts;
   $("hj-count").style.background = alerts ? "#d33" : "";
   $("hj-list").replaceChildren(...(items.length ? items : [h("li", "muted", "Nenhum indicador.")]));
+
+  // Lista de bloqueio
+  const blockedNow = rep.blocked || {};
+  $("bl-count").textContent = blocklist.length;
+  $("bl-list").replaceChildren(...blocklist.map((d) => {
+    const btn = h("button", "mini", "remover");
+    btn.addEventListener("click", () => setBlocklist(blocklist.filter((x) => x !== d)));
+    return h("li", "", d, blockedNow[d] ? h("span", "tag blocked", `${blockedNow[d]} bloqueada(s) nesta página`) : "", btn);
+  }));
 }
+
+$("bl-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const d = normalize($("bl-input").value);
+  if (!d || !d.includes(".")) return;
+  $("bl-input").value = "";
+  setBlocklist([...(await getBlocklist()), d]);
+});
+
+// Exporta o relatório da aba como JSON (útil para as evidências do relatório)
+$("export").addEventListener("click", () => {
+  if (!lastReport) return;
+  const blob = new Blob([JSON.stringify(lastReport, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `privacy-guard-${lastReport.host}-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-")}.json`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+});
 
 render();

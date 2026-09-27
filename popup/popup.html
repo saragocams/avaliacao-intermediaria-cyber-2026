@@ -10,6 +10,23 @@
     <div id="site" class="muted"></div>
   </header>
 
+  <section id="score-box">
+    <h2>Pontuação de risco à privacidade</h2>
+    <div class="score-row">
+      <div id="sc-value" class="score">–</div>
+      <div>
+        <div id="sc-band" class="band">–</div>
+        <div class="muted small">0 = sem risco · 10 = risco crítico (faixas do CVSS)</div>
+      </div>
+    </div>
+    <code id="sc-vector" class="vector"></code>
+    <details><summary>Como foi calculado</summary>
+      <table class="grid small" id="sc-table">
+        <tr><th>Critério</th><th>Peso</th><th>Nota</th><th>Motivo</th></tr>
+      </table>
+    </details>
+  </section>
+
   <section>
     <h2>Conexões de terceira parte <span id="tp-count" class="pill"></span></h2>
     <div class="muted" id="req-summary"></div>
@@ -53,6 +70,20 @@
   <section>
     <h2>Sequestro de navegador / hooks <span id="hj-count" class="pill"></span></h2>
     <ul id="hj-list" class="small"></ul>
+  </section>
+
+  <section>
+    <h2>Lista de bloqueio <span id="bl-count" class="pill"></span></h2>
+    <form id="bl-form" class="bl-form">
+      <input id="bl-input" type="text" placeholder="ex.: doubleclick.net" autocomplete="off">
+      <button type="submit">Bloquear</button>
+    </form>
+    <div class="muted small">Bloqueia o domínio e todos os subdomínios. Recarregue a página para aplicar.</div>
+    <ul id="bl-list" class="small"></ul>
+  </section>
+
+  <section>
+    <button id="export" class="secondary">Exportar relatório desta página (JSON)</button>
   </section>
 
   <script src="popup.js"></script>

@@ -22,6 +22,8 @@ src/background.js    monitora requisições e cabeçalhos Set-Cookie por aba
 src/tracking.js      bounce tracking, cookie sync e parâmetros de rastreamento (gclid, fbclid…)
 src/hijack.js        indicadores de hijacking no tráfego (WebSocket, polling, CSP, BeEF)
 src/hijack-page.js   integridade de objetos globais e captura de teclado dentro da página
+src/score.js         pontuação de risco (critérios, pesos e justificativa no próprio arquivo)
+src/blocklist.js     lista de bloqueio personalizada (cancela requisições via webRequestBlocking)
 src/fingerprint.js   ganchos em Canvas/WebGL para detectar fingerprinting
 src/content.js       roda na página: lê localStorage, sessionStorage, IndexedDB
 popup/               interface com o relatório da aba atual
@@ -37,5 +39,6 @@ evidencias/          HARs e prints usados no relatório
 - [x] Canvas fingerprint (e leitura de GPU via WebGL)
 - [x] Cookie sync / bounce tracking / parâmetros de rastreamento na URL
 - [x] Hijacking / hook (objetos globais alterados, WebSocket/SSE/polling de 3ª parte, captura de teclado, gravação de sessão, BeEF, CSP)
-- [ ] Pontuação de privacidade
-- [ ] Lista de bloqueio personalizada
+- [x] Pontuação de risco à privacidade (0–10, vetor de métricas no estilo CVSS)
+- [x] Lista de bloqueio personalizada (popup, salva em storage.local)
+- [x] Exportação do relatório da página em JSON

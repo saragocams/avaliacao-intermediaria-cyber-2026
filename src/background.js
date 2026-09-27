@@ -211,7 +211,10 @@ function serializeReport(rep) {
     persistent: c.filter((x) => x.kind === "persistent").length
   };
 
-  return { ...rep, thirdParty, cookies: c, cookieSummary };
+  const out = { ...rep, thirdParty, cookies: c, cookieSummary };
+  // Pontuação (src/score.js) calculada sobre o relatório serializado
+  if (typeof computeScore === "function") out.score = computeScore(out);
+  return out;
 }
 
 // ---------- Badge ----------

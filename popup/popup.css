@@ -12,3 +12,16 @@ li { margin: 2px 0; }
 table.grid { border-collapse: collapse; width: 100%; }
 table.grid td, table.grid th { border: 1px solid #eee; padding: 3px 6px; text-align: left; }
 .tag { font-size: 10px; background: #f0f0f0; border-radius: 3px; padding: 0 4px; margin-left: 4px; }
+
+.score-row { display: flex; align-items: center; gap: 12px; }
+.score { font-size: 34px; font-weight: 700; min-width: 64px; text-align: center; border-radius: 8px; padding: 4px 8px; color: #fff; background: #888; }
+.band { font-weight: 600; font-size: 15px; }
+.vector { display: block; font-size: 10px; margin-top: 6px; color: #555; word-break: break-all; }
+.b-Nenhum { background: #2e9e5b; } .b-Baixo { background: #6aa84f; } .b-Médio { background: #e8a200; }
+.b-Alto { background: #e06000; } .b-Crítico { background: #c62828; }
+button { font: inherit; font-size: 12px; border: 1px solid #2e6ee6; background: #2e6ee6; color: #fff; border-radius: 4px; padding: 3px 8px; cursor: pointer; }
+button.secondary, button.mini { background: #fff; color: #2e6ee6; }
+button.mini { font-size: 10px; padding: 0 5px; margin-left: 6px; }
+.bl-form { display: flex; gap: 6px; margin-bottom: 4px; }
+.bl-form input { flex: 1; font: inherit; padding: 3px 6px; border: 1px solid #ccc; border-radius: 4px; }
+.tag.blocked { background: #c62828; color: #fff; }
