@@ -1,0 +1,425 @@
+{
+  "tabId": 10,
+  "url": "https://www.friv.com/",
+  "host": "www.friv.com",
+  "base": "friv.com",
+  "startedAt": 1790630222741,
+  "totalRequests": 77,
+  "firstPartyRequests": 22,
+  "thirdParty": [
+    {
+      "domain": "googlesyndication.com",
+      "hosts": [
+        "pagead2.googlesyndication.com",
+        "tpc.googlesyndication.com"
+      ],
+      "count": 20,
+      "types": {
+        "script": 11,
+        "xmlhttprequest": 3,
+        "image": 6
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "google.com",
+      "hosts": [
+        "fundingchoicesmessages.google.com",
+        "www.google.com"
+      ],
+      "count": 18,
+      "types": {
+        "script": 7,
+        "xmlhttprequest": 10,
+        "sub_frame": 1
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "doubleclick.net",
+      "hosts": [
+        "googleads.g.doubleclick.net"
+      ],
+      "count": 5,
+      "types": {
+        "sub_frame": 3,
+        "xmlhttprequest": 2
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "adtrafficquality.google",
+      "hosts": [
+        "ep1.adtrafficquality.google",
+        "ep2.adtrafficquality.google"
+      ],
+      "count": 5,
+      "types": {
+        "xmlhttprequest": 1,
+        "script": 1,
+        "sub_frame": 1,
+        "image": 2
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "google-analytics.com",
+      "hosts": [
+        "www.google-analytics.com"
+      ],
+      "count": 2,
+      "types": {
+        "xmlhttprequest": 2
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "googletagmanager.com",
+      "hosts": [
+        "www.googletagmanager.com"
+      ],
+      "count": 2,
+      "types": {
+        "script": 2
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "gstatic.com",
+      "hosts": [
+        "www.gstatic.com",
+        "fonts.gstatic.com"
+      ],
+      "count": 2,
+      "types": {
+        "script": 1,
+        "font": 1
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "googleapis.com",
+      "hosts": [
+        "fonts.googleapis.com"
+      ],
+      "count": 1,
+      "types": {
+        "stylesheet": 1
+      },
+      "blocked": 0
+    }
+  ],
+  "cookies": [
+    {
+      "name": "_ga_WKK8W70CG6",
+      "domain": "friv.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1853702223000,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "js"
+      ],
+      "fromHost": "www.googletagmanager.com",
+      "requestType": "script",
+      "script": "https://www.googletagmanager.com/gtag/js?id=G-WKK8W70CG6&cx=c&gtm=4e69o0",
+      "timesSet": 4
+    },
+    {
+      "name": "FCCDCF",
+      "domain": "www.friv.com",
+      "party": "first",
+      "kind": "session",
+      "expires": 2689200000,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "js"
+      ],
+      "fromHost": "www.friv.com",
+      "requestType": "script",
+      "script": null,
+      "timesSet": 4
+    },
+    {
+      "name": "FCCDCF",
+      "domain": "friv.com",
+      "party": "first",
+      "kind": "session",
+      "expires": 2689200000,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "js"
+      ],
+      "fromHost": "www.friv.com",
+      "requestType": "script",
+      "script": null,
+      "timesSet": 4
+    },
+    {
+      "name": "test_cookie",
+      "domain": "doubleclick.net",
+      "party": "third",
+      "kind": "persistent",
+      "expires": 1790631120000,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "none",
+      "sources": [
+        "http"
+      ],
+      "fromHost": "googleads.g.doubleclick.net",
+      "requestType": "sub_frame",
+      "script": null,
+      "timesSet": 4
+    },
+    {
+      "name": "FCNEC",
+      "domain": "www.friv.com",
+      "party": "first",
+      "kind": "session",
+      "expires": 2689200000,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "js"
+      ],
+      "fromHost": "www.friv.com",
+      "requestType": "script",
+      "script": null,
+      "timesSet": 2
+    },
+    {
+      "name": "FCNEC",
+      "domain": "friv.com",
+      "party": "first",
+      "kind": "session",
+      "expires": 2689200000,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "js"
+      ],
+      "fromHost": "www.friv.com",
+      "requestType": "script",
+      "script": null,
+      "timesSet": 2
+    },
+    {
+      "name": "IDE",
+      "domain": "doubleclick.net",
+      "party": "third",
+      "kind": "persistent",
+      "expires": 1853702222000,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "none",
+      "sources": [
+        "http"
+      ],
+      "fromHost": "googleads.g.doubleclick.net",
+      "requestType": "xmlhttprequest",
+      "script": null,
+      "timesSet": 2
+    },
+    {
+      "name": "_ga",
+      "domain": "friv.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1853702229000,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "js"
+      ],
+      "fromHost": "www.googletagmanager.com",
+      "requestType": "script",
+      "script": "https://www.googletagmanager.com/gtag/js?id=G-WKK8W70CG6&cx=c&gtm=4e69o0",
+      "timesSet": 1
+    }
+  ],
+  "cookieWrites": 23,
+  "storage": {
+    "origin": "https://www.friv.com",
+    "localStorage": {
+      "count": 10,
+      "bytes": 6746,
+      "keys": [
+        "frivExtraTimer",
+        "niceColour1",
+        "randomAssignment",
+        "gfxPerformance",
+        "visitsCounter",
+        "google_ama_config",
+        "niceColour2",
+        "gamePlays",
+        "google_adsense_settings",
+        "dressupCounter"
+      ]
+    },
+    "sessionStorage": {
+      "count": 0,
+      "bytes": 0,
+      "keys": []
+    },
+    "indexedDB": {
+      "count": 0,
+      "names": []
+    },
+    "takenAt": 1790630235265
+  },
+  "fingerprint": [],
+  "hijack": {
+    "csp": {
+      "present": false,
+      "source": "ausente",
+      "weak": []
+    },
+    "channels": [],
+    "beef": [],
+    "integrity": {
+      "changed": [
+        {
+          "name": "HTMLFormElement.prototype.submit",
+          "source": "function(){var c=this,d=!0;oL(c,function(){d&&b.call(c)},!1,qL(c))&&(b.call(c),d=\n!1)}"
+        }
+      ],
+      "addedCount": 393,
+      "suspicious": [],
+      "sampleAdded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "scriptsLoadable",
+        "testVer",
+        "monitor",
+        "runExecutionIssueDetect",
+        "eid1"
+      ]
+    },
+    "keyListeners": [
+      {
+        "event": "keydown",
+        "target": "html",
+        "script": "https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202609230101/slotcar_library_fy2021.js?bust=122881249",
+        "host": "pagead2.googlesyndication.com",
+        "_k": "https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202609230101/slotcar_library_fy2021.js?bust=122881249keydown"
+      },
+      {
+        "event": "keyup",
+        "target": "html",
+        "script": "https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202609230101/slotcar_library_fy2021.js?bust=122881249",
+        "host": "pagead2.googlesyndication.com",
+        "_k": "https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202609230101/slotcar_library_fy2021.js?bust=122881249keyup"
+      },
+      {
+        "event": "keydown",
+        "target": "document",
+        "script": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-0813719552929704&output=html&h=280&slotname=7131294101&adk=2182065488&adf=1986404705&pi=t.ma~as.7131294101&abgtt=6&w=1200&fwrn=4&fwrnh=100&lmt=1790152666&rafmt=1&format=1200x280&url=https%3A%2F%2Fwww.friv.com%2F&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aimartd=4&aieuf=1&aicrs=1&dt=1790630225825&bpp=2&bdt=2186&idt=157&shv=r20260925&mjsv=m202609230101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3881561259732&frm=20&pv=1&u_tz=-180&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&adx=168&ady=147&biw=1536&bih=208&scr_x=0&scr_y=0&eid=95403098%2C95403358%2C122881249&oid=2&pvsid=8474451767470503&tmod=775040545&uas=0&nvt=1&fc=1920&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C830%2C1536%2C208&vis=1&rsz=%7C%7CoEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1.01&ifi=2&uci=a!2&fsb=1&dtd=165",
+        "host": "googleads.g.doubleclick.net",
+        "_k": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-0813719552929704&output=html&h=280&slotname=7131294101&adk=2182065488&adf=1986404705&pi=t.ma~as.7131294101&abgtt=6&w=1200&fwrn=4&fwrnh=100&lmt=1790152666&rafmt=1&format=1200x280&url=https%3A%2F%2Fwww.friv.com%2F&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aimartd=4&aieuf=1&aicrs=1&dt=1790630225825&bpp=2&bdt=2186&idt=157&shv=r20260925&mjsv=m202609230101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3881561259732&frm=20&pv=1&u_tz=-180&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&adx=168&ady=147&biw=1536&bih=208&scr_x=0&scr_y=0&eid=95403098%2C95403358%2C122881249&oid=2&pvsid=8474451767470503&tmod=775040545&uas=0&nvt=1&fc=1920&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C830%2C1536%2C208&vis=1&rsz=%7C%7CoEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1.01&ifi=2&uci=a!2&fsb=1&dtd=165keydown"
+      },
+      {
+        "event": "keydown",
+        "target": "div",
+        "script": "https://tpc.googlesyndication.com/pagead/js/r20260925/r20110914/abg_lite_fy2021.js",
+        "host": "tpc.googlesyndication.com",
+        "_k": "https://tpc.googlesyndication.com/pagead/js/r20260925/r20110914/abg_lite_fy2021.jskeydown"
+      },
+      {
+        "event": "keypress",
+        "target": "document",
+        "script": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-0813719552929704&output=html&h=280&slotname=7131294101&adk=2182065488&adf=1986404705&pi=t.ma~as.7131294101&abgtt=6&w=1200&fwrn=4&fwrnh=100&lmt=1790152666&rafmt=1&format=1200x280&url=https%3A%2F%2Fwww.friv.com%2F&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aimartd=4&aieuf=1&aicrs=1&dt=1790630225825&bpp=2&bdt=2186&idt=157&shv=r20260925&mjsv=m202609230101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3881561259732&frm=20&pv=1&u_tz=-180&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&adx=168&ady=147&biw=1536&bih=208&scr_x=0&scr_y=0&eid=95403098%2C95403358%2C122881249&oid=2&pvsid=8474451767470503&tmod=775040545&uas=0&nvt=1&fc=1920&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C830%2C1536%2C208&vis=1&rsz=%7C%7CoEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1.01&ifi=2&uci=a!2&fsb=1&dtd=165",
+        "host": "googleads.g.doubleclick.net",
+        "_k": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-0813719552929704&output=html&h=280&slotname=7131294101&adk=2182065488&adf=1986404705&pi=t.ma~as.7131294101&abgtt=6&w=1200&fwrn=4&fwrnh=100&lmt=1790152666&rafmt=1&format=1200x280&url=https%3A%2F%2Fwww.friv.com%2F&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aimartd=4&aieuf=1&aicrs=1&dt=1790630225825&bpp=2&bdt=2186&idt=157&shv=r20260925&mjsv=m202609230101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3881561259732&frm=20&pv=1&u_tz=-180&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&adx=168&ady=147&biw=1536&bih=208&scr_x=0&scr_y=0&eid=95403098%2C95403358%2C122881249&oid=2&pvsid=8474451767470503&tmod=775040545&uas=0&nvt=1&fc=1920&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C830%2C1536%2C208&vis=1&rsz=%7C%7CoEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1.01&ifi=2&uci=a!2&fsb=1&dtd=165keypress"
+      },
+      {
+        "event": "keyup",
+        "target": "document",
+        "script": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-0813719552929704&output=html&h=280&slotname=7131294101&adk=2182065488&adf=1986404705&pi=t.ma~as.7131294101&abgtt=6&w=1200&fwrn=4&fwrnh=100&lmt=1790152666&rafmt=1&format=1200x280&url=https%3A%2F%2Fwww.friv.com%2F&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aimartd=4&aieuf=1&aicrs=1&dt=1790630225825&bpp=2&bdt=2186&idt=157&shv=r20260925&mjsv=m202609230101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3881561259732&frm=20&pv=1&u_tz=-180&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&adx=168&ady=147&biw=1536&bih=208&scr_x=0&scr_y=0&eid=95403098%2C95403358%2C122881249&oid=2&pvsid=8474451767470503&tmod=775040545&uas=0&nvt=1&fc=1920&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C830%2C1536%2C208&vis=1&rsz=%7C%7CoEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1.01&ifi=2&uci=a!2&fsb=1&dtd=165",
+        "host": "googleads.g.doubleclick.net",
+        "_k": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-0813719552929704&output=html&h=280&slotname=7131294101&adk=2182065488&adf=1986404705&pi=t.ma~as.7131294101&abgtt=6&w=1200&fwrn=4&fwrnh=100&lmt=1790152666&rafmt=1&format=1200x280&url=https%3A%2F%2Fwww.friv.com%2F&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aimartd=4&aieuf=1&aicrs=1&dt=1790630225825&bpp=2&bdt=2186&idt=157&shv=r20260925&mjsv=m202609230101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3881561259732&frm=20&pv=1&u_tz=-180&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&adx=168&ady=147&biw=1536&bih=208&scr_x=0&scr_y=0&eid=95403098%2C95403358%2C122881249&oid=2&pvsid=8474451767470503&tmod=775040545&uas=0&nvt=1&fc=1920&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C830%2C1536%2C208&vis=1&rsz=%7C%7CoEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1.01&ifi=2&uci=a!2&fsb=1&dtd=165keyup"
+      },
+      {
+        "event": "input",
+        "target": "document",
+        "script": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-0813719552929704&output=html&h=280&slotname=7131294101&adk=2182065488&adf=1986404705&pi=t.ma~as.7131294101&abgtt=6&w=1200&fwrn=4&fwrnh=100&lmt=1790152666&rafmt=1&format=1200x280&url=https%3A%2F%2Fwww.friv.com%2F&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aimartd=4&aieuf=1&aicrs=1&dt=1790630225825&bpp=2&bdt=2186&idt=157&shv=r20260925&mjsv=m202609230101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3881561259732&frm=20&pv=1&u_tz=-180&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&adx=168&ady=147&biw=1536&bih=208&scr_x=0&scr_y=0&eid=95403098%2C95403358%2C122881249&oid=2&pvsid=8474451767470503&tmod=775040545&uas=0&nvt=1&fc=1920&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C830%2C1536%2C208&vis=1&rsz=%7C%7CoEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1.01&ifi=2&uci=a!2&fsb=1&dtd=165",
+        "host": "googleads.g.doubleclick.net",
+        "_k": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&us_privacy=1---&gpp_sid=-1&client=ca-pub-0813719552929704&output=html&h=280&slotname=7131294101&adk=2182065488&adf=1986404705&pi=t.ma~as.7131294101&abgtt=6&w=1200&fwrn=4&fwrnh=100&lmt=1790152666&rafmt=1&format=1200x280&url=https%3A%2F%2Fwww.friv.com%2F&fwr=0&fwrattr=true&rpe=1&resp_fmts=3&asro=0&aimartd=4&aieuf=1&aicrs=1&dt=1790630225825&bpp=2&bdt=2186&idt=157&shv=r20260925&mjsv=m202609230101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=3881561259732&frm=20&pv=1&u_tz=-180&u_his=1&u_h=864&u_w=1536&u_ah=816&u_aw=1536&u_cd=24&u_sd=1.25&adx=168&ady=147&biw=1536&bih=208&scr_x=0&scr_y=0&eid=95403098%2C95403358%2C122881249&oid=2&pvsid=8474451767470503&tmod=775040545&uas=0&nvt=1&fc=1920&brdim=-7%2C-7%2C-7%2C-7%2C1536%2C0%2C1550%2C830%2C1536%2C208&vis=1&rsz=%7C%7CoEe%7C&abl=CS&pfx=0&fu=128&bc=31&bz=1.01&ifi=2&uci=a!2&fsb=1&dtd=165input"
+      }
+    ],
+    "sessionReplay": []
+  },
+  "bounces": [],
+  "cookieSync": [],
+  "decoratedParams": [],
+  "cookieSummary": {
+    "total": 8,
+    "writes": 23,
+    "viaJs": 6,
+    "firstPartyByThirdPartyScript": 2,
+    "firstParty": 6,
+    "thirdParty": 2,
+    "session": 4,
+    "persistent": 4
+  },
+  "score": {
+    "score": 3.6,
+    "band": "Baixo",
+    "vector": "PG:1.0/TP:5.6/CK:4.3/FP:0.0/XS:0.0/HJ:7.0/ST:6.1",
+    "parts": [
+      {
+        "key": "TP",
+        "weight": 0.25,
+        "value": 5.6,
+        "why": "8 domínio(s) de 3ª parte"
+      },
+      {
+        "key": "CK",
+        "weight": 0.2,
+        "value": 4.3,
+        "why": "2 persistente(s) de 3ª parte + 2 de 1ª parte criados por script de 3ª"
+      },
+      {
+        "key": "FP",
+        "weight": 0.2,
+        "value": 0,
+        "why": "nenhum"
+      },
+      {
+        "key": "XS",
+        "weight": 0.15,
+        "value": 0,
+        "why": "0 bounce(s), 0 par(es) de sync, 0 URL(s) com parâmetro de rastreamento"
+      },
+      {
+        "key": "HJ",
+        "weight": 0.15,
+        "value": 7,
+        "why": "captura de teclado/gravação de sessão, 1 objeto(s) global(is) alterado(s), sem CSP"
+      },
+      {
+        "key": "ST",
+        "weight": 0.05,
+        "value": 6.1,
+        "why": "10 chave(s) em Web Storage, 0 banco(s) IndexedDB"
+      }
+    ]
+  }
+}
