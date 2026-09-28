@@ -1,0 +1,245 @@
+{
+  "tabId": 4,
+  "url": "https://neocities.org/",
+  "host": "neocities.org",
+  "base": "neocities.org",
+  "startedAt": 1790629093838,
+  "totalRequests": 48,
+  "firstPartyRequests": 40,
+  "thirdParty": [
+    {
+      "domain": "hcaptcha.com",
+      "hosts": [
+        "hcaptcha.com",
+        "newassets.hcaptcha.com",
+        "a3ba75daf16f.w.hcaptcha.com",
+        "381dfe7f94be.w.hcaptcha.com",
+        "api.hcaptcha.com"
+      ],
+      "count": 8,
+      "types": {
+        "script": 2,
+        "sub_frame": 2,
+        "xmlhttprequest": 4
+      },
+      "blocked": 0
+    }
+  ],
+  "cookies": [
+    {
+      "name": "__cf_bm",
+      "domain": "hcaptcha.com",
+      "party": "third",
+      "kind": "persistent",
+      "expires": 1790630888000,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None",
+      "sources": [
+        "http"
+      ],
+      "fromHost": "hcaptcha.com",
+      "requestType": "script",
+      "script": null,
+      "timesSet": 2
+    },
+    {
+      "name": "__cf_bm",
+      "domain": "w.hcaptcha.com",
+      "party": "third",
+      "kind": "persistent",
+      "expires": 1790630890000,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None",
+      "sources": [
+        "http"
+      ],
+      "fromHost": "a3ba75daf16f.w.hcaptcha.com",
+      "requestType": "xmlhttprequest",
+      "script": null,
+      "timesSet": 2
+    }
+  ],
+  "cookieWrites": 4,
+  "storage": {
+    "origin": "https://neocities.org",
+    "localStorage": {
+      "count": 1,
+      "bytes": 40,
+      "keys": [
+        "neocities-theme"
+      ]
+    },
+    "sessionStorage": {
+      "count": 0,
+      "bytes": 0,
+      "keys": []
+    },
+    "indexedDB": {
+      "count": 0,
+      "names": []
+    },
+    "takenAt": 1790629103804
+  },
+  "fingerprint": [
+    {
+      "api": "toDataURL",
+      "verdict": "suspeito",
+      "script": "https://newassets.hcaptcha.com/c/75045a385d34f8d83c80226781f946549022612c450b910bc20b9cd705ef3868/hsw.js",
+      "scriptHost": "newassets.hcaptcha.com",
+      "thirdParty": true,
+      "frame": "https://newassets.hcaptcha.com/captcha/v1/b9ca2a6602c2bf69741b771db488f3001ea35b08/static/hcaptcha.html#frame=challenge&id=0rkrzfsjkfji&host=neocities.org&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=pt-BR&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=ccbaff1a-6ed6-49a4-8ba1-389295218523&theme=light&origin=https%3A%2F%2Fneocities.org&clientOptions=%7B%22sentry%22%3Atrue%2C%22reportapi%22%3A%22https%3A%2F%2Faccounts.hcaptcha.com%22%2C%22recaptchacompat%22%3A%22true%22%2C%22custom%22%3Afalse%2C%22hl%22%3A%22pt-BR%22%2C%22tplinks%22%3A%22on%22%2C%22andint%22%3A%22off%22%2C%22pat%22%3A%22on%22%2C%22pstissuer%22%3A%22https%3A%2F%2Fpst-issuer.hcaptcha.com%22%2C%22endpoint%22%3A%22https%3A%2F%2Fapi.hcaptcha.com%22%2C%22theme%22%3A%22light%22%2C%22size%22%3A%22normal%22%2C%22confirm-nav%22%3Afalse%7D",
+      "details": {
+        "width": 20,
+        "height": 20,
+        "distinctChars": 1,
+        "colors": 1
+      },
+      "at": 1790629095920
+    },
+    {
+      "api": "toDataURL",
+      "verdict": "fingerprint",
+      "script": "https://newassets.hcaptcha.com/c/75045a385d34f8d83c80226781f946549022612c450b910bc20b9cd705ef3868/hsw.js",
+      "scriptHost": "newassets.hcaptcha.com",
+      "thirdParty": true,
+      "frame": "https://newassets.hcaptcha.com/captcha/v1/b9ca2a6602c2bf69741b771db488f3001ea35b08/static/hcaptcha.html#frame=challenge&id=0rkrzfsjkfji&host=neocities.org&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=pt-BR&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=ccbaff1a-6ed6-49a4-8ba1-389295218523&theme=light&origin=https%3A%2F%2Fneocities.org&clientOptions=%7B%22sentry%22%3Atrue%2C%22reportapi%22%3A%22https%3A%2F%2Faccounts.hcaptcha.com%22%2C%22recaptchacompat%22%3A%22true%22%2C%22custom%22%3Afalse%2C%22hl%22%3A%22pt-BR%22%2C%22tplinks%22%3A%22on%22%2C%22andint%22%3A%22off%22%2C%22pat%22%3A%22on%22%2C%22pstissuer%22%3A%22https%3A%2F%2Fpst-issuer.hcaptcha.com%22%2C%22endpoint%22%3A%22https%3A%2F%2Fapi.hcaptcha.com%22%2C%22theme%22%3A%22light%22%2C%22size%22%3A%22normal%22%2C%22confirm-nav%22%3Afalse%7D",
+      "details": {
+        "width": 96,
+        "height": 48,
+        "distinctChars": 39,
+        "colors": 5
+      },
+      "at": 1790629096103
+    }
+  ],
+  "hijack": {
+    "csp": {
+      "present": true,
+      "source": "cabeçalho HTTP",
+      "weak": [
+        "'unsafe-inline'",
+        "'unsafe-eval'"
+      ]
+    },
+    "channels": [],
+    "beef": [],
+    "integrity": {
+      "changed": [],
+      "addedCount": 8,
+      "suspicious": [],
+      "sampleAdded": [
+        "0",
+        "1",
+        "$",
+        "jQuery",
+        "jQuery111009616284010033678",
+        "Raven",
+        "hcaptcha",
+        "grecaptcha"
+      ]
+    },
+    "keyListeners": [
+      {
+        "event": "keyup",
+        "target": "body",
+        "script": "https://hcaptcha.com/1/api.js",
+        "host": "hcaptcha.com",
+        "_k": "https://hcaptcha.com/1/api.jskeyup"
+      },
+      {
+        "event": "keydown",
+        "target": "body",
+        "script": "https://hcaptcha.com/1/api.js",
+        "host": "hcaptcha.com",
+        "_k": "https://hcaptcha.com/1/api.jskeydown"
+      },
+      {
+        "event": "input",
+        "target": "body",
+        "script": "https://hcaptcha.com/1/api.js",
+        "host": "hcaptcha.com",
+        "_k": "https://hcaptcha.com/1/api.jsinput"
+      },
+      {
+        "event": "keydown",
+        "target": "div",
+        "script": "https://newassets.hcaptcha.com/captcha/v1/b9ca2a6602c2bf69741b771db488f3001ea35b08/static/hcaptcha.html#frame=challenge&id=0rkrzfsjkfji&host=neocities.org&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=pt-BR&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=ccbaff1a-6ed6-49a4-8ba1-389295218523&theme=light&origin=https%3A%2F%2Fneocities.org&clientOptions=%7B%22sentry%22%3Atrue%2C%22reportapi%22%3A%22https%3A%2F%2Faccounts.hcaptcha.com%22%2C%22recaptchacompat%22%3A%22true%22%2C%22custom%22%3Afalse%2C%22hl%22%3A%22pt-BR%22%2C%22tplinks%22%3A%22on%22%2C%22andint%22%3A%22off%22%2C%22pat%22%3A%22on%22%2C%22pstissuer%22%3A%22https%3A%2F%2Fpst-issuer.hcaptcha.com%22%2C%22endpoint%22%3A%22https%3A%2F%2Fapi.hcaptcha.com%22%2C%22theme%22%3A%22light%22%2C%22size%22%3A%22normal%22%2C%22confirm-nav%22%3Afalse%7D",
+        "host": "newassets.hcaptcha.com",
+        "_k": "https://newassets.hcaptcha.com/captcha/v1/b9ca2a6602c2bf69741b771db488f3001ea35b08/static/hcaptcha.html#frame=challenge&id=0rkrzfsjkfji&host=neocities.org&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=pt-BR&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=ccbaff1a-6ed6-49a4-8ba1-389295218523&theme=light&origin=https%3A%2F%2Fneocities.org&clientOptions=%7B%22sentry%22%3Atrue%2C%22reportapi%22%3A%22https%3A%2F%2Faccounts.hcaptcha.com%22%2C%22recaptchacompat%22%3A%22true%22%2C%22custom%22%3Afalse%2C%22hl%22%3A%22pt-BR%22%2C%22tplinks%22%3A%22on%22%2C%22andint%22%3A%22off%22%2C%22pat%22%3A%22on%22%2C%22pstissuer%22%3A%22https%3A%2F%2Fpst-issuer.hcaptcha.com%22%2C%22endpoint%22%3A%22https%3A%2F%2Fapi.hcaptcha.com%22%2C%22theme%22%3A%22light%22%2C%22size%22%3A%22normal%22%2C%22confirm-nav%22%3Afalse%7Dkeydown"
+      },
+      {
+        "event": "keydown",
+        "target": "a",
+        "script": "https://newassets.hcaptcha.com/captcha/v1/b9ca2a6602c2bf69741b771db488f3001ea35b08/static/hcaptcha.html#frame=checkbox&id=0rkrzfsjkfji&host=neocities.org&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=pt-BR&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=ccbaff1a-6ed6-49a4-8ba1-389295218523&theme=light&origin=https%3A%2F%2Fneocities.org&clientOptions=%7B%22sentry%22%3Atrue%2C%22reportapi%22%3A%22https%3A%2F%2Faccounts.hcaptcha.com%22%2C%22recaptchacompat%22%3A%22true%22%2C%22custom%22%3Afalse%2C%22hl%22%3A%22pt-BR%22%2C%22tplinks%22%3A%22on%22%2C%22andint%22%3A%22off%22%2C%22pat%22%3A%22on%22%2C%22pstissuer%22%3A%22https%3A%2F%2Fpst-issuer.hcaptcha.com%22%2C%22endpoint%22%3A%22https%3A%2F%2Fapi.hcaptcha.com%22%2C%22theme%22%3A%22light%22%2C%22size%22%3A%22normal%22%2C%22confirm-nav%22%3Afalse%7D",
+        "host": "newassets.hcaptcha.com",
+        "_k": "https://newassets.hcaptcha.com/captcha/v1/b9ca2a6602c2bf69741b771db488f3001ea35b08/static/hcaptcha.html#frame=checkbox&id=0rkrzfsjkfji&host=neocities.org&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=pt-BR&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=ccbaff1a-6ed6-49a4-8ba1-389295218523&theme=light&origin=https%3A%2F%2Fneocities.org&clientOptions=%7B%22sentry%22%3Atrue%2C%22reportapi%22%3A%22https%3A%2F%2Faccounts.hcaptcha.com%22%2C%22recaptchacompat%22%3A%22true%22%2C%22custom%22%3Afalse%2C%22hl%22%3A%22pt-BR%22%2C%22tplinks%22%3A%22on%22%2C%22andint%22%3A%22off%22%2C%22pat%22%3A%22on%22%2C%22pstissuer%22%3A%22https%3A%2F%2Fpst-issuer.hcaptcha.com%22%2C%22endpoint%22%3A%22https%3A%2F%2Fapi.hcaptcha.com%22%2C%22theme%22%3A%22light%22%2C%22size%22%3A%22normal%22%2C%22confirm-nav%22%3Afalse%7Dkeydown"
+      },
+      {
+        "event": "keyup",
+        "target": "body",
+        "script": "https://newassets.hcaptcha.com/captcha/v1/b9ca2a6602c2bf69741b771db488f3001ea35b08/static/hcaptcha.html#frame=checkbox&id=0rkrzfsjkfji&host=neocities.org&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=pt-BR&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=ccbaff1a-6ed6-49a4-8ba1-389295218523&theme=light&origin=https%3A%2F%2Fneocities.org&clientOptions=%7B%22sentry%22%3Atrue%2C%22reportapi%22%3A%22https%3A%2F%2Faccounts.hcaptcha.com%22%2C%22recaptchacompat%22%3A%22true%22%2C%22custom%22%3Afalse%2C%22hl%22%3A%22pt-BR%22%2C%22tplinks%22%3A%22on%22%2C%22andint%22%3A%22off%22%2C%22pat%22%3A%22on%22%2C%22pstissuer%22%3A%22https%3A%2F%2Fpst-issuer.hcaptcha.com%22%2C%22endpoint%22%3A%22https%3A%2F%2Fapi.hcaptcha.com%22%2C%22theme%22%3A%22light%22%2C%22size%22%3A%22normal%22%2C%22confirm-nav%22%3Afalse%7D",
+        "host": "newassets.hcaptcha.com",
+        "_k": "https://newassets.hcaptcha.com/captcha/v1/b9ca2a6602c2bf69741b771db488f3001ea35b08/static/hcaptcha.html#frame=checkbox&id=0rkrzfsjkfji&host=neocities.org&sentry=true&reportapi=https%3A%2F%2Faccounts.hcaptcha.com&recaptchacompat=true&custom=false&hl=pt-BR&tplinks=on&andint=off&pstissuer=https%3A%2F%2Fpst-issuer.hcaptcha.com&sitekey=ccbaff1a-6ed6-49a4-8ba1-389295218523&theme=light&origin=https%3A%2F%2Fneocities.org&clientOptions=%7B%22sentry%22%3Atrue%2C%22reportapi%22%3A%22https%3A%2F%2Faccounts.hcaptcha.com%22%2C%22recaptchacompat%22%3A%22true%22%2C%22custom%22%3Afalse%2C%22hl%22%3A%22pt-BR%22%2C%22tplinks%22%3A%22on%22%2C%22andint%22%3A%22off%22%2C%22pat%22%3A%22on%22%2C%22pstissuer%22%3A%22https%3A%2F%2Fpst-issuer.hcaptcha.com%22%2C%22endpoint%22%3A%22https%3A%2F%2Fapi.hcaptcha.com%22%2C%22theme%22%3A%22light%22%2C%22size%22%3A%22normal%22%2C%22confirm-nav%22%3Afalse%7Dkeyup"
+      }
+    ],
+    "sessionReplay": []
+  },
+  "bounces": [],
+  "cookieSync": [],
+  "decoratedParams": [],
+  "cookieSummary": {
+    "total": 2,
+    "writes": 4,
+    "viaJs": 0,
+    "firstPartyByThirdPartyScript": 0,
+    "firstParty": 0,
+    "thirdParty": 2,
+    "session": 0,
+    "persistent": 2
+  },
+  "score": {
+    "score": 3.9,
+    "band": "Baixo",
+    "vector": "PG:1.0/TP:1.8/CK:3.0/FP:10.0/XS:0.0/HJ:5.0/ST:1.8",
+    "parts": [
+      {
+        "key": "TP",
+        "weight": 0.25,
+        "value": 1.8,
+        "why": "1 domínio(s) de 3ª parte"
+      },
+      {
+        "key": "CK",
+        "weight": 0.2,
+        "value": 3,
+        "why": "2 persistente(s) de 3ª parte + 0 de 1ª parte criados por script de 3ª"
+      },
+      {
+        "key": "FP",
+        "weight": 0.2,
+        "value": 10,
+        "why": "1 técnica(s) de fingerprint"
+      },
+      {
+        "key": "XS",
+        "weight": 0.15,
+        "value": 0,
+        "why": "0 bounce(s), 0 par(es) de sync, 0 URL(s) com parâmetro de rastreamento"
+      },
+      {
+        "key": "HJ",
+        "weight": 0.15,
+        "value": 5,
+        "why": "captura de teclado/gravação de sessão, CSP fraca"
+      },
+      {
+        "key": "ST",
+        "weight": 0.05,
+        "value": 1.8,
+        "why": "1 chave(s) em Web Storage, 0 banco(s) IndexedDB"
+      }
+    ]
+  }
+}
