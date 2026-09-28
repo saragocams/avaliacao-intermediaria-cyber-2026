@@ -1,0 +1,509 @@
+{
+  "tabId": 13,
+  "url": "https://br.pinterest.com/",
+  "host": "br.pinterest.com",
+  "base": "pinterest.com",
+  "startedAt": 1790631204125,
+  "totalRequests": 237,
+  "firstPartyRequests": 79,
+  "thirdParty": [
+    {
+      "domain": "pinimg.com",
+      "hosts": [
+        "s.pinimg.com",
+        "i1-e.pinimg.com",
+        "i.pinimg.com"
+      ],
+      "count": 134,
+      "types": {
+        "script": 118,
+        "font": 4,
+        "imageset": 4,
+        "image": 7,
+        "stylesheet": 1
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "google.com",
+      "hosts": [
+        "accounts.google.com",
+        "play.google.com"
+      ],
+      "count": 12,
+      "types": {
+        "script": 1,
+        "stylesheet": 1,
+        "xmlhttprequest": 8,
+        "sub_frame": 2
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "gstatic.com",
+      "hosts": [
+        "www.gstatic.com",
+        "fonts.gstatic.com"
+      ],
+      "count": 9,
+      "types": {
+        "script": 3,
+        "font": 4,
+        "stylesheet": 1,
+        "image": 1
+      },
+      "blocked": 0
+    },
+    {
+      "domain": "recaptcha.net",
+      "hosts": [
+        "www.recaptcha.net"
+      ],
+      "count": 3,
+      "types": {
+        "script": 2,
+        "sub_frame": 1
+      },
+      "blocked": 0
+    }
+  ],
+  "cookies": [
+    {
+      "name": "csrftoken",
+      "domain": "br.pinterest.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1822167198000,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "lax",
+      "sources": [
+        "http"
+      ],
+      "fromHost": "br.pinterest.com",
+      "requestType": "main_frame",
+      "script": null,
+      "timesSet": 3
+    },
+    {
+      "name": "_pinterest_sess",
+      "domain": "pinterest.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1821735198000,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "none",
+      "sources": [
+        "http"
+      ],
+      "fromHost": "br.pinterest.com",
+      "requestType": "main_frame",
+      "script": null,
+      "timesSet": 3
+    },
+    {
+      "name": "_auth",
+      "domain": "pinterest.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1821735198000,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": null,
+      "sources": [
+        "http"
+      ],
+      "fromHost": "br.pinterest.com",
+      "requestType": "main_frame",
+      "script": null,
+      "timesSet": 3
+    },
+    {
+      "name": "_routing_id",
+      "domain": "br.pinterest.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1790717604408,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "http"
+      ],
+      "fromHost": "br.pinterest.com",
+      "requestType": "main_frame",
+      "script": null,
+      "timesSet": 3
+    },
+    {
+      "name": "sessionFunnelEventLogged",
+      "domain": "br.pinterest.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1790674405000,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": null,
+      "sources": [
+        "js"
+      ],
+      "fromHost": "s.pinimg.com",
+      "requestType": "script",
+      "script": "https://s.pinimg.com/webapp/44817.pt_BR-50f09766ffd4a2eb.mjs",
+      "timesSet": 1
+    },
+    {
+      "name": "g_state",
+      "domain": "br.pinterest.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1806183205000,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "js",
+        "http"
+      ],
+      "fromHost": "accounts.google.com",
+      "requestType": "script",
+      "script": "https://accounts.google.com/gsi/client?hl=pt",
+      "timesSet": 38
+    },
+    {
+      "name": "_ir",
+      "domain": "okra.pinterest.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1790633005261,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": null,
+      "sources": [
+        "http"
+      ],
+      "fromHost": "okra.pinterest.com",
+      "requestType": "script",
+      "script": null,
+      "timesSet": 1
+    },
+    {
+      "name": "_b",
+      "domain": "pinterest.com",
+      "party": "first",
+      "kind": "persistent",
+      "expires": 1885239205374,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": null,
+      "sources": [
+        "http"
+      ],
+      "fromHost": "br.pinterest.com",
+      "requestType": "xmlhttprequest",
+      "script": null,
+      "timesSet": 1
+    },
+    {
+      "name": "g_state",
+      "domain": "pinterest.com",
+      "party": "first",
+      "kind": "session",
+      "expires": 0,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": null,
+      "sources": [
+        "http"
+      ],
+      "fromHost": "br.pinterest.com",
+      "requestType": "xmlhttprequest",
+      "script": null,
+      "timesSet": 35
+    },
+    {
+      "name": "cookietest",
+      "domain": "br.pinterest.com",
+      "party": "first",
+      "kind": "session",
+      "expires": null,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Strict",
+      "sources": [
+        "js"
+      ],
+      "fromHost": "s.pinimg.com",
+      "requestType": "script",
+      "script": "https://s.pinimg.com/webapp/31320-7a4e9b88c0160f2a.mjs",
+      "timesSet": 2
+    },
+    {
+      "name": "NID",
+      "domain": "google.com",
+      "party": "third",
+      "kind": "persistent",
+      "expires": 1806442411000,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "none",
+      "sources": [
+        "http"
+      ],
+      "fromHost": "play.google.com",
+      "requestType": "xmlhttprequest",
+      "script": null,
+      "timesSet": 3
+    }
+  ],
+  "cookieWrites": 93,
+  "storage": {
+    "origin": "https://br.pinterest.com",
+    "localStorage": {
+      "count": 2,
+      "bytes": 436,
+      "keys": [
+        "pid",
+        "_unauthVisitedPages"
+      ]
+    },
+    "sessionStorage": {
+      "count": 1,
+      "bytes": 64,
+      "keys": [
+        "_bottomRightUpsellDismissed"
+      ]
+    },
+    "indexedDB": {
+      "count": 2,
+      "names": [
+        "ContextLoggingDB",
+        "EventLoggingDB"
+      ]
+    },
+    "takenAt": 1790631213984
+  },
+  "fingerprint": [
+    {
+      "api": "toDataURL",
+      "verdict": "suspeito",
+      "script": "https://s.pinimg.com/webapp/31320-7a4e9b88c0160f2a.mjs",
+      "scriptHost": "s.pinimg.com",
+      "thirdParty": true,
+      "frame": "https://br.pinterest.com/",
+      "details": {
+        "width": 122,
+        "height": 110,
+        "distinctChars": 0,
+        "colors": 0
+      },
+      "at": 1790631205550
+    },
+    {
+      "api": "toDataURL",
+      "verdict": "fingerprint",
+      "script": "https://s.pinimg.com/webapp/31320-7a4e9b88c0160f2a.mjs",
+      "scriptHost": "s.pinimg.com",
+      "thirdParty": true,
+      "frame": "https://br.pinterest.com/",
+      "details": {
+        "width": 240,
+        "height": 60,
+        "distinctChars": 17,
+        "colors": 2
+      },
+      "at": 1790631205558
+    }
+  ],
+  "hijack": {
+    "csp": {
+      "present": true,
+      "source": "cabeçalho HTTP",
+      "weak": []
+    },
+    "channels": [],
+    "beef": [],
+    "integrity": {
+      "changed": [
+        {
+          "name": "window.fetch",
+          "source": "async(...t)=>{let n,c=t[0],l=\"string\"==typeof c&&c.startsWith(\"/\");try{n=await a(...t)}catch(r){let e,o=n?.headers;throw"
+        },
+        {
+          "name": "Function.prototype.toString",
+          "source": "function(){return i(this)&&d(this).source||s(this)}"
+        }
+      ],
+      "addedCount": 47,
+      "suspicious": [],
+      "sampleAdded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "__PWS_RESOURCE_DATA_BEFORE_INIT__",
+        "__PWS_RESOURCE_PENDING_BEFORE_INIT__",
+        "__PWS_RESOURCE_SSR_HANDLER__",
+        "__PWS_RESOURCE_PENDING_FETCH_HANDLER__",
+        "__PWS_RELAY_REGISTER_PENDING_REQUEST__",
+        "__PWS_RELAY_REGISTER_COMPLETED_REQUEST__",
+        "__PWS_RELAY_REJECT_PENDING_REQUEST__",
+        "__PWS_RELAY_SSR_REQUESTS__",
+        "PWS_TRACE_LOGGER",
+        "annotations"
+      ]
+    },
+    "keyListeners": [
+      {
+        "event": "keydown",
+        "target": "window",
+        "script": "https://s.pinimg.com/webapp/vendor-react-68014d4c9d555ba9.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/vendor-react-68014d4c9d555ba9.mjskeydown"
+      },
+      {
+        "event": "keydown",
+        "target": "document",
+        "script": "https://s.pinimg.com/webapp/www/_client.pt_BR-f6e5a50c073c3909.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/www/_client.pt_BR-f6e5a50c073c3909.mjskeydown"
+      },
+      {
+        "event": "keyup",
+        "target": "document",
+        "script": "https://s.pinimg.com/webapp/www/_client.pt_BR-f6e5a50c073c3909.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/www/_client.pt_BR-f6e5a50c073c3909.mjskeyup"
+      },
+      {
+        "event": "input",
+        "target": "div",
+        "script": "https://s.pinimg.com/webapp/vendor-react-68014d4c9d555ba9.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/vendor-react-68014d4c9d555ba9.mjsinput"
+      },
+      {
+        "event": "keypress",
+        "target": "div",
+        "script": "https://s.pinimg.com/webapp/vendor-react-68014d4c9d555ba9.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/vendor-react-68014d4c9d555ba9.mjskeypress"
+      },
+      {
+        "event": "keyup",
+        "target": "div",
+        "script": "https://s.pinimg.com/webapp/vendor-react-68014d4c9d555ba9.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/vendor-react-68014d4c9d555ba9.mjskeyup"
+      },
+      {
+        "event": "keydown",
+        "target": "window",
+        "script": "https://s.pinimg.com/webapp/38024-003f8c526896c8ee.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/38024-003f8c526896c8ee.mjskeydown"
+      },
+      {
+        "event": "keyup",
+        "target": "window",
+        "script": "https://s.pinimg.com/webapp/38024-003f8c526896c8ee.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/38024-003f8c526896c8ee.mjskeyup"
+      },
+      {
+        "event": "keydown",
+        "target": "document",
+        "script": "https://s.pinimg.com/webapp/gestalt-7120f0b5e2886f81.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/gestalt-7120f0b5e2886f81.mjskeydown"
+      },
+      {
+        "event": "keyup",
+        "target": "document",
+        "script": "https://s.pinimg.com/webapp/gestalt-7120f0b5e2886f81.mjs",
+        "host": "s.pinimg.com",
+        "_k": "https://s.pinimg.com/webapp/gestalt-7120f0b5e2886f81.mjskeyup"
+      },
+      {
+        "event": "keydown",
+        "target": "div",
+        "script": "https://accounts.google.com/gsi/client?hl=pt",
+        "host": "accounts.google.com",
+        "_k": "https://accounts.google.com/gsi/client?hl=ptkeydown"
+      },
+      {
+        "event": "keydown",
+        "target": "body",
+        "script": "https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__pt_br.js",
+        "host": "www.gstatic.com",
+        "_k": "https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__pt_br.jskeydown"
+      },
+      {
+        "event": "keyup",
+        "target": "body",
+        "script": "https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__pt_br.js",
+        "host": "www.gstatic.com",
+        "_k": "https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__pt_br.jskeyup"
+      }
+    ],
+    "sessionReplay": []
+  },
+  "bounces": [],
+  "cookieSync": [],
+  "decoratedParams": [],
+  "cookieSummary": {
+    "total": 11,
+    "writes": 93,
+    "viaJs": 3,
+    "firstPartyByThirdPartyScript": 3,
+    "firstParty": 10,
+    "thirdParty": 1,
+    "session": 2,
+    "persistent": 9
+  },
+  "score": {
+    "score": 5.1,
+    "band": "Médio",
+    "vector": "PG:1.0/TP:4.1/CK:4.3/FP:10.0/XS:0.0/HJ:6.0/ST:5.5",
+    "parts": [
+      {
+        "key": "TP",
+        "weight": 0.25,
+        "value": 4.1,
+        "why": "4 domínio(s) de 3ª parte"
+      },
+      {
+        "key": "CK",
+        "weight": 0.2,
+        "value": 4.3,
+        "why": "1 persistente(s) de 3ª parte + 3 de 1ª parte criados por script de 3ª"
+      },
+      {
+        "key": "FP",
+        "weight": 0.2,
+        "value": 10,
+        "why": "1 técnica(s) de fingerprint"
+      },
+      {
+        "key": "XS",
+        "weight": 0.15,
+        "value": 0,
+        "why": "0 bounce(s), 0 par(es) de sync, 0 URL(s) com parâmetro de rastreamento"
+      },
+      {
+        "key": "HJ",
+        "weight": 0.15,
+        "value": 6,
+        "why": "captura de teclado/gravação de sessão, 2 objeto(s) global(is) alterado(s)"
+      },
+      {
+        "key": "ST",
+        "weight": 0.05,
+        "value": 5.5,
+        "why": "3 chave(s) em Web Storage, 2 banco(s) IndexedDB"
+      }
+    ]
+  }
+}
