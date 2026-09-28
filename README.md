@@ -42,3 +42,24 @@ evidencias/          HARs e prints usados no relatório
 - [x] Pontuação de risco à privacidade (0–10, vetor de métricas no estilo CVSS)
 - [x] Lista de bloqueio personalizada (popup, salva em storage.local)
 - [x] Exportação do relatório da página em JSON
+
+## Relatório e evidências
+
+- `relatorio.pdf` — entregáveis 2 (DuckDuckGo Privacy Test Pages), 3 (análise de 3 sites reais) e 4 (pontuação de privacidade comparada ao Blacklight)
+- `evidencias/ddg/` — prints do plugin em cada página de teste do DuckDuckGo (numerados como na tabela do relatório)
+- `evidencias/sites/` — para neocities.org, www.friv.com e br.pinterest.com: HAR exportado do DevTools, relatório JSON do plugin, prints do plugin, do Blacklight e do uBlock Origin
+
+### Procedimento de coleta dos sites
+
+1. Limpar cookies e cache (Ctrl+Shift+Del → Tudo), uBlock Origin desligado
+2. DevTools aberto na aba Rede (com "Persistir logs") antes de carregar o site
+3. Esperar 30 s sem interagir → prints do popup + "Exportar relatório (JSON)" + "Salvar tudo como HAR"
+4. Rodar o Blacklight (themarkup.org/blacklight) no mesmo endereço
+5. Ligar o uBlock Origin, recarregar e registrar os bloqueios
+
+## Pontuação de privacidade
+
+Nota de 0 a 10 (quanto maior, pior), média ponderada de seis critérios no estilo do vetor CVSS:
+TP domínios de 3ª parte (25%), CK cookies (20%), FP fingerprinting (20%), XS rastreamento entre sites (15%),
+HJ hijacking/hook (15%) e ST armazenamento HTML5 (5%). Critérios, fórmulas e justificativas em `src/score.js`
+e na seção 4 do relatório.

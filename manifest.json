@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Privacy Guard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detecta rastreadores, cookies, armazenamento HTML5 e outras violações de privacidade.",
   "icons": { "48": "icons/icon-48.png", "96": "icons/icon-96.png" },
 

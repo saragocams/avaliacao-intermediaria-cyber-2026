@@ -62,7 +62,16 @@ function idCandidates(value) {
   try { v = decodeURIComponent(value); } catch (e) { /* mantém */ }
   const out = new Set();
   if (looksLikeId(v)) out.add(v);
-  for (const part of v.split(/[.|:&=]/)) if (looksLikeId(part)) out.add(part);
+  const parts = v.split(/[.|:&=]/);
+  for (const part of parts) if (looksLikeId(part)) out.add(part);
+  // IDs compostos por dois números: o _ga do Google Analytics é "GA1.1.<aleatório>.<timestamp>"
+  // e o parâmetro "cid" enviado ao Google leva só "<aleatório>.<timestamp>". Cada metade sozinha
+  // parece um timestamp (e é descartada), então guardamos também o par final.
+  // (Falso negativo encontrado na análise do friv.com: HAR mostra cid=1224357415.1790630191.)
+  if (parts.length >= 2) {
+    const tail = parts.slice(-2).join(".");
+    if (/^\d{6,}\.\d{6,}$/.test(tail)) out.add(tail);
+  }
   return [...out];
 }
 
